@@ -1,15 +1,19 @@
-import React from 'react';
+import React from "react";
 
-const Form = ({setInputText}) => {
+const Form = ({ setInputText }) => {
   // Here I can write javascript code and function
-  const inputTextHandler = (e) => {
+  const inputTextHandler = e => {
     console.log(e.target.value);
     setInputText(e.target.value);
-  }
+  };
+  const submitTodoHandler = e => {
+    e.preventDefault();
+    
+  };
   return (
     <form>
       <input onChange={inputTextHandler} type="text" className="todo-input" />
-      <button className="todo-button" type="submit">
+      <button onClick={submitTodoHandler} className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
       </button>
       <div className="select">
@@ -21,6 +25,6 @@ const Form = ({setInputText}) => {
       </div>
     </form>
   );
-}
+};
 
 export default Form;
